@@ -2,59 +2,136 @@
 <html>
 <head>
     <title>Personal Website</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
+        /* ====== BODY & BASE STYLES ====== */
         body {
             font-family: Arial, sans-serif;
-            color: white; 
+            color: white;
             text-shadow: 5px 3px 5px black;
             background: url("bgimage.png") no-repeat center/cover;
             margin: 0;
-            padding: 0;
+            padding-top: 90px; /* to avoid content hidden behind fixed header */
             text-align: center;
+            scroll-behavior: smooth; /* smooth scroll */
         }
 
+        /* ====== CONTAINER ====== */
         .container {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            width: 90%;              
-            max-width: 900px;       
+            width: 90%;
+            max-width: 900px;
             margin: 40px auto;
-            padding: 20px;          
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 10px 15px 25px black;
         }
 
-       
+        /* ====== HEADER ====== */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 15px 8%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            user-select: none;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #00ffcc;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        /* ====== NAVIGATION BAR ====== */
+        nav.navbar {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav.navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav.navbar a:hover,
+        nav.navbar a.active {
+            color: #00ffcc;
+        }
+
+        nav.navbar a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #00ffcc;
+            transition: width 0.3s ease;
+        }
+
+        nav.navbar a:hover::after,
+        nav.navbar a.active::after {
+            width: 100%;
+        }
+
+        /* ====== HAMBURGER MENU ====== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            width: 25px;
+            height: 20px;
+        }
+
+        .hamburger div {
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* ====== PROFILE SECTION ====== */
         .profile-section {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
         }
 
         .profile-section ul {
             text-align: left;
         }
 
-        h1 {
-            color: white;
-            text-shadow: 5px 2px 3px black;
-        }
-
+        /* ====== IMAGE ====== */
         img {
             border-radius: 30%;
             box-shadow: 0 0 25px black;
-            max-width: 100%;         
-            height: auto;           
+            max-width: 100%;
+            height: auto;
         }
 
+        /* ====== TABLE ====== */
         table {
-            width: 100%;            
+            width: 100%;
             margin: 20px auto;
             border-collapse: collapse;
         }
@@ -70,7 +147,9 @@
             background-color: transparent;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid white;
         }
 
@@ -101,19 +180,7 @@
             text-align: left;
         }
 
-        header{
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    padding: 4rem 15%;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000; }
-
+        /* ====== MEDIA QUERIES FOR RESPONSIVENESS ====== */
         @media (max-width: 768px) {
             .container {
                 width: 95%;
@@ -127,49 +194,94 @@
             h1 {
                 font-size: 22px;
             }
+
+            nav.navbar {
+                position: fixed;
+                top: 65px;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                width: 200px;
+                max-width: 70vw;
+                height: calc(100vh - 65px);
+                padding-top: 30px;
+                gap: 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 9999;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.7);
+                border-radius: 0 0 0 15px;
+            }
+
+            nav.navbar.open {
+                transform: translateX(0);
+            }
+
+            nav.navbar a {
+                font-size: 18px;
+                padding-left: 20px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
         }
 
+        /* Hamburger animation when active */
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
     </style>
 </head>
 
-    <header class="header">
-            <a href="#home" class = "logo">My Profile</a>
-
-            <nav class="navbar">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-    
 <body>
+    <header class="header">
+        <a href="#home" class="logo">My Profile</a>
 
-    <div class="container">
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="container" id="home">
         <h1>🌟 Welcome to My Personal Website 🌟</h1>
         <p><i>Discover who I am and what I love!</i></p>
 
-        <hr>
+        <hr />
 
         <div class="profile-section">
-              <img src="ortizpic.jpg" alt="Profile" width="180">
+            <img src="ortizpic.jpg" alt="Profile" width="180" />
             <ul>
                 <li>Ortiz Carmelito R. Jr.</li>
                 <li>BSCS - 1B</li>
                 <li>251101178</li>
             </ul>
-
-          
         </div>
 
-        <hr>
-         <p>
-                    I am passionate about learning, creating, and exploring new ideas.
-         </p>
-        <hr>
+        <hr />
+        <p>
+            I am passionate about learning, creating, and exploring new ideas.
+        </p>
+        <hr />
 
-        <h3>✨ More Info About Me ✨</h3>
+        <h3 id="about">✨ More Info About Me ✨</h3>
 
         <table>
             <tr>
@@ -195,27 +307,76 @@
             </tr>
         </table>
 
-        <hr>
+        <hr />
 
         <blockquote>
             " With God all things are possible. - Matthew 19:26 "
         </blockquote>
 
-        <hr>
+        <hr />
+
+        <h3 id="projects">Projects</h3>
+        <p>Coming soon...</p>
+
+        <hr />
+
+        <h3 id="contact">Contact Me</h3>
+        <p>Email: your.email@example.com</p>
 
         <footer>
             <h3>✨ Thank You for Visiting! ✨</h3>
             <p>© 2026 | Ortiz Carmelito R. Jr. | Portfolio</p>
         </footer>
-
     </div>
 
+    <script>
+        // Hamburger toggle
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+
+        hamburger.addEventListener('click', () => {
+            navbar.classList.toggle('open');
+            hamburger.classList.toggle('active');
+
+            // Accessibility toggle
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close navbar when link clicked (mobile)
+        const navLinks = navbar.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbar.classList.contains('open')) {
+                    navbar.classList.remove('open');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', false);
+                }
+            });
+        });
+
+        // Highlight active nav link on scroll
+        const sections = document.querySelectorAll('h3[id], #home');
+        window.addEventListener('scroll', () => {
+            let scrollPos = window.scrollY + 120; // offset for header height
+
+            sections.forEach(section => {
+                if (
+                    scrollPos >= section.offsetTop &&
+                    scrollPos < section.offsetTop + section.offsetHeight
+                ) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (
+                            link.getAttribute('href').substring(1) === section.id ||
+                            (section.id === 'home' && link.getAttribute('href') === '#home')
+                        ) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
