@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-        /* ====== BODY & BASE STYLES ====== */
+       
         body {
             font-family: Arial, sans-serif;
             color: white;
             text-shadow: 5px 3px 5px black;
             background: url("bgimage.png") no-repeat center/cover;
             margin: 0;
-            padding-top: 90px; /* to avoid content hidden behind fixed header */
+            padding-top: 90px; 
             text-align: center;
-            scroll-behavior: smooth; /* smooth scroll */
+            scroll-behavior: smooth;
         }
 
-        /* ====== CONTAINER ====== */
+     
         .container {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
@@ -31,7 +31,7 @@
             box-shadow: 10px 15px 25px black;
         }
 
-        /* ====== HEADER ====== */
+      
         header {
             position: fixed;
             width: 100%;
@@ -56,7 +56,7 @@
             letter-spacing: 1px;
         }
 
-        /* ====== NAVIGATION BAR ====== */
+       
         nav.navbar {
             display: flex;
             gap: 30px;
@@ -91,7 +91,6 @@
             width: 100%;
         }
 
-        /* ====== HAMBURGER MENU ====== */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -108,7 +107,6 @@
             transition: all 0.3s ease;
         }
 
-        /* ====== PROFILE SECTION ====== */
         .profile-section {
             display: flex;
             justify-content: center;
@@ -121,7 +119,7 @@
             text-align: left;
         }
 
-        /* ====== IMAGE ====== */
+ 
         img {
             border-radius: 30%;
             box-shadow: 0 0 25px black;
@@ -129,7 +127,7 @@
             height: auto;
         }
 
-        /* ====== TABLE ====== */
+  
         table {
             width: 100%;
             margin: 20px auto;
@@ -180,7 +178,7 @@
             text-align: left;
         }
 
-        /* ====== MEDIA QUERIES FOR RESPONSIVENESS ====== */
+    
         @media (max-width: 768px) {
             .container {
                 width: 95%;
@@ -205,7 +203,7 @@
                 max-width: 70vw;
                 height: calc(100vh - 65px);
                 padding: 30px 25px 30px 30px;  
-                gap: 20px;
+                gap: 15px;
                 transform: translateX(120%);  
                 transition: transform 0.3s ease;
                 z-index: 9999;
@@ -227,7 +225,7 @@
             }
         }
 
-        /* Hamburger animation when active */
+     
         .hamburger.active div:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
@@ -380,4 +378,5 @@
     </script>
 </body>
 </html>
+
 
