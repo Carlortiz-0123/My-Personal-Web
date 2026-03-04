@@ -101,6 +101,19 @@
             text-align: left;
         }
 
+        header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 4rem 15%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; }
+
         @media (max-width: 768px) {
             .container {
                 width: 95%;
@@ -119,6 +132,17 @@
     </style>
 </head>
 
+    <header class="header">
+            <a href="#home" class = "logo">My Profile</a>
+
+            <nav class="navbar">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+    
 <body>
 
     <div class="container">
@@ -188,6 +212,7 @@
 
 </body>
 </html>
+
 
 
 
