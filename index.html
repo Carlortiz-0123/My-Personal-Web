@@ -34,13 +34,21 @@
             text-shadow: 5px 2px 3px black;
         }
 
-        img {
-            border-radius: 30%;
-            box-shadow: 0 0 25px black;
-            margin: 20px 0;
-            max-width: 100%;         
-            height: auto;           
-        }
+       .profile-section {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           gap: 40px;
+           flex-wrap: wrap; /* makes it responsive */
+         }
+
+         .profile-text {
+           text-align: left;
+          }
+
+          .profile-text ul {
+            display: block;
+           }
 
         table {
             width: 100%;            
@@ -85,10 +93,7 @@
             text-align: left;
             display: inline-block;
         }
-        ul{
-             text-align: left;
-            display: inline-block;
-        }
+       
 
         
         @media (max-width: 768px) {
@@ -113,23 +118,21 @@
 
     <div class="container">
 
-        <h1>🌟 Welcome to My Personal Website 🌟</h1>
-        <p><i>Discover who I am and what I love!</i></p>
-
-        <hr>
-
-        <img src="ortizpic.jpg" alt="Profile" width="180">
-        
-        
+     <div class="profile-section">
+    <div class="profile-text">
         <ul>
             <li>Ortiz Carmelito R. Jr.</li>
-            <li>BSCS - 1B </li>
-            <li>251101178 </li>
+            <li>BSCS - 1B</li>
+            <li>251101178</li>
         </ul>
-      <p>
-        I am passionate about learning, creating, and exploring new ideas.
-        </p>
 
+        <p>
+            I am passionate about learning, creating, and exploring new ideas.
+        </p>
+    </div>
+
+    <img src="ortizpic.jpg" alt="Profile" width="180">
+</div>
         <hr>
 
         <h3>✨ More Info About Me ✨</h3>
@@ -176,6 +179,7 @@
 </body>
 
 </html>
+
 
 
 
