@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
+       
         body {
             font-family: Arial, sans-serif;
             color: white;
@@ -18,6 +19,7 @@
             min-height: 100vh;
         }
 
+     
         .container {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
@@ -30,6 +32,7 @@
             box-shadow: 10px 15px 25px black;
         }
 
+      
         header {
             position: fixed;
             width: 100%;
@@ -55,26 +58,11 @@
             margin-left: 10%;
         }
 
-        /* Hamburger button */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            margin-right: 10%;
-        }
-
-        .hamburger span {
-            height: 3px;
-            width: 25px;
-            background: white;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
+       
         nav.navbar {
-            display: flex;
-            gap: 15px;
-            margin-right: 10%;
+           display: flex;
+           gap: 15px;
+           margin-right: 10%;
         }
 
         nav.navbar a {
@@ -118,6 +106,7 @@
             text-align: left;
         }
 
+ 
         img {
             border-radius: 30%;
             box-shadow: 0 0 25px black;
@@ -125,6 +114,7 @@
             height: auto;
         }
 
+  
         table {
             width: 80%;
             margin: 20px auto;
@@ -142,7 +132,9 @@
             background-color: transparent;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid white;
         }
 
@@ -170,32 +162,41 @@
             display: inline-block;
         }
 
-     
+       
+    
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 22px;
             }
 
             nav.navbar {
                 position: fixed;
                 top: 65px;
-                right: 0;
+                right: 15px;             
                 background: rgba(0, 0, 0, 0.9);
                 flex-direction: column;
-                width: 220px;
+                width: 220px;          
                 max-width: 70vw;
                 height: calc(100vh - 65px);
-                padding: 30px;
+                padding: 30px 25px 30px 30px;  
                 gap: 15px;
-                transform: translateX(120%);
+                transform: translateX(120%);  
                 transition: transform 0.3s ease;
                 z-index: 9999;
                 box-shadow: -5px 0 15px rgba(0,0,0,0.7);
                 border-radius: 0 0 0 15px;
-                box-sizing: border-box;
-            }
-
-            nav.navbar.open {
+                box-sizing: border-box; 
+           }
+           nav.navbar.open {
                 transform: translateX(0);
             }
 
@@ -203,31 +204,8 @@
                 font-size: 18px;
                 padding-left: 20px;
             }
-        }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 18px;
-            }
-
-            .logo {
-                font-size: 18px;
-                margin-left: 5%;
-            }
-
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            table {
-                width: 100%;
-                font-size: 12px;
-            }
-
-            nav.navbar a {
-                font-size: 16px;
-            }
+           
         }
     </style>
 </head>
@@ -236,15 +214,8 @@
     <header class="header">
         <a href="index.html" class="logo">My Profile</a>
 
-      
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
         <nav class="navbar" id="navbar">
-            <a href="index.html.html" class="active">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="activities.html">Activities</a>
             <a href="quiz.html">Quizzes</a>
             <a href="exam.html">Exams</a>
@@ -267,10 +238,13 @@
         </div>
 
         <hr />
-        <p>I am passionate about learning, creating, and exploring new ideas.</p>
+        <p>
+            I am passionate about learning, creating, and exploring new ideas.
+        </p>
         <hr />
 
         <h3>✨ More Info About Me ✨</h3>
+
         <table>
             <tr>
                 <th>🎨 My Hobbies</th>
@@ -308,16 +282,6 @@
             <p>© 2026 | Ortiz Carmelito R. Jr. | Portfolio</p>
         </footer>
     </div>
-
-    <script>
-       
-        const hamburger = document.getElementById("hamburger");
-        const navbar = document.getElementById("navbar");
-
-        hamburger.addEventListener("click", () => {
-            navbar.classList.toggle("open");
-            hamburger.classList.toggle("active");
-        });
-    </script>
 </body>
 </html>
+
