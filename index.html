@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
-       
         body {
             font-family: Arial, sans-serif;
             color: white;
@@ -19,7 +18,6 @@
             min-height: 100vh;
         }
 
-     
         .container {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
@@ -32,7 +30,6 @@
             box-shadow: 10px 15px 25px black;
         }
 
-      
         header {
             position: fixed;
             width: 100%;
@@ -58,11 +55,20 @@
             margin-left: 10%;
         }
 
-       
+        /* Hamburger button visible by default */
+        #menu-toggle {
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: block;
+        }
+
         nav.navbar {
-           display: flex;
-           gap: 15px;
-           margin-right: 10%;
+            display: flex;
+            gap: 15px;
+            margin-right: 10%;
         }
 
         nav.navbar a {
@@ -106,7 +112,6 @@
             text-align: left;
         }
 
- 
         img {
             border-radius: 30%;
             box-shadow: 0 0 25px black;
@@ -114,7 +119,6 @@
             height: auto;
         }
 
-  
         table {
             width: 80%;
             margin: 20px auto;
@@ -132,9 +136,7 @@
             background-color: transparent;
         }
 
-        table,
-        th,
-        td {
+        table, th, td {
             border: 1px solid white;
         }
 
@@ -162,8 +164,14 @@
             display: inline-block;
         }
 
-       
-    
+        /* Hide hamburger on desktop */
+        @media (min-width: 769px) {
+            #menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Tablet screens */
         @media (max-width: 768px) {
             .container {
                 width: 95%;
@@ -181,22 +189,23 @@
             nav.navbar {
                 position: fixed;
                 top: 65px;
-                right: 15px;             
+                right: 0;
                 background: rgba(0, 0, 0, 0.9);
                 flex-direction: column;
-                width: 220px;          
+                width: 220px;
                 max-width: 70vw;
                 height: calc(100vh - 65px);
-                padding: 30px 25px 30px 30px;  
+                padding: 30px;
                 gap: 15px;
-                transform: translateX(120%);  
+                transform: translateX(120%);
                 transition: transform 0.3s ease;
                 z-index: 9999;
                 box-shadow: -5px 0 15px rgba(0,0,0,0.7);
                 border-radius: 0 0 0 15px;
-                box-sizing: border-box; 
-           }
-           nav.navbar.open {
+                box-sizing: border-box;
+            }
+
+            nav.navbar.open {
                 transform: translateX(0);
             }
 
@@ -204,16 +213,40 @@
                 font-size: 18px;
                 padding-left: 20px;
             }
+        }
 
-           
+        /* Small phones */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+            }
+
+            .logo {
+                font-size: 18px;
+                margin-left: 5%;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            table {
+                width: 100%;
+                font-size: 12px;
+            }
+
+            nav.navbar a {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <a href="index.html" class="logo">My Profile</a>
-
+        <a href="profile.html" class="logo">My Profile</a>
+        <button id="menu-toggle">☰</button>
         <nav class="navbar" id="navbar">
             <a href="index.html" class="active">Home</a>
             <a href="activities.html">Activities</a>
@@ -238,13 +271,10 @@
         </div>
 
         <hr />
-        <p>
-            I am passionate about learning, creating, and exploring new ideas.
-        </p>
+        <p>I am passionate about learning, creating, and exploring new ideas.</p>
         <hr />
 
         <h3>✨ More Info About Me ✨</h3>
-
         <table>
             <tr>
                 <th>🎨 My Hobbies</th>
@@ -282,14 +312,15 @@
             <p>© 2026 | Ortiz Carmelito R. Jr. | Portfolio</p>
         </footer>
     </div>
+
+    <script>
+        // Toggle mobile menu
+        const toggleBtn = document.getElementById("menu-toggle");
+        const navbar = document.getElementById("navbar");
+
+        toggleBtn.addEventListener("click", () => {
+            navbar.classList.toggle("open");
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
