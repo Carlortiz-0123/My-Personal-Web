@@ -1,0 +1,236 @@
+/* === BODY === */
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  text-shadow: 5px 3px 5px black;
+  background: url("bgimage.png") no-repeat center/cover;
+  margin: 0;
+  padding-top: 90px;
+  text-align: center;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+/* === HEADER === */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 40px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffcc;
+  text-decoration: none;
+  letter-spacing: 1px;
+  margin-left: 10%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 10%;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+nav.navbar {
+  display: flex;
+  gap: 15px;
+  margin-right: 10%;
+}
+
+nav.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav.navbar a:hover,
+nav.navbar a.active {
+  color: #00ffcc;
+}
+
+nav.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #00ffcc;
+  transition: width 0.3s ease;
+}
+
+nav.navbar a:hover::after,
+nav.navbar a.active::after {
+  width: 100%;
+}
+
+/* === HOME PAGE CONTAINER === */
+.container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 10px 15px 25px black;
+}
+
+/* === PROFILE SECTION === */
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-section ul {
+  text-align: left;
+}
+
+img {
+  border-radius: 30%;
+  box-shadow: 0 0 25px black;
+  max-width: 100%;
+  height: auto;
+}
+
+/* === TABLES === */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 15px;
+  background-color: transparent;
+}
+
+table, th, td {
+  border: 1px solid white;
+}
+
+/* === TEXT ELEMENTS === */
+blockquote {
+  font-style: italic;
+  color: white;
+  margin: 20px;
+}
+
+footer {
+  margin-top: 20px;
+  color: white;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: white;
+  width: 80%;
+  margin: 20px auto;
+}
+
+ol {
+  text-align: left;
+  display: inline-block;
+}
+/* === ACTIVITIES === */
+.ActivityH1{
+  font-size: 22px;
+  font-weight: bold;
+  font-family: fantasy;
+  letter-spacing: 2px;
+  color: #00ffcc;
+  text-shadow: 5px 5px 5px rgb(14, 14, 14);
+}
+/* === QUIZZES === */
+.QuizH1{
+  font-size: 22px;
+  font-weight: bold;
+  font-family: fantasy;
+  letter-spacing: 2px;
+  color: #00ffcc;
+  text-shadow: 5px 5px 5px rgb(14, 14, 14);
+}
+/* === EXAMS === */
+.ExamH1{
+  font-size: 22px;
+  font-weight: bold;
+  font-family: fantasy;
+  letter-spacing: 2px;
+  color: #00ffcc;
+  text-shadow: 5px 5px 5px rgb(14, 14, 14);
+}
+
+
+/* === RESPONSIVENESS === */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  nav.navbar {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    width: 220px;
+    max-width: 70vw;
+    height: calc(100vh - 70px);
+    padding: 30px;
+    gap: 15px;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.7);
+    border-radius: 0 0 0 15px;
+  }
+
+  nav.navbar.open { transform: translateX(0); }
+
+  nav.navbar a {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .profile-section { flex-direction: column; text-align: center; }
+  table { width: 100%; font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 18px; }
+  .logo { font-size: 18px; margin-left: 5%; }
+  nav.navbar a { font-size: 16px; }
+  .profile-section { flex-direction: column; text-align: center; }
+}
