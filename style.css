@@ -251,9 +251,11 @@ ol {
   table { width: 100%; font-size: 12px; }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 480px) {
   h1 { font-size: 18px; }
   .logo { font-size: 18px; margin-left: 5%; }
   nav.navbar a { font-size: 16px; }
   .profile-section { flex-direction: column; text-align: center; }
+  .hamburger{ flex:flex-wrap; top:0; left:0; right:0;}
+  .container{ max-width:100%; }
 }
