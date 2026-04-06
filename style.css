@@ -189,6 +189,16 @@ ol {
   display: inline-block;
 }
 
+/* === DASHBOARD === */
+.DashboardH1{
+  font-size: 22px;
+  font-weight: bold;
+  font-family: fantasy;
+  letter-spacing: 2px;
+  color: #00ffcc;
+  text-shadow: 5px 5px 5px rgb(14, 14, 14);
+}
+
 
 /* === ACTIVITIES === */
 .ActivityH1{
