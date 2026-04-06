@@ -18,6 +18,8 @@
             <span></span>
         </div>
 
+         <div id="overlay"></div>
+
         <nav class="navbar" id="navbar">
             <a href="index.html" class="active">Home</a>
             <a href="activities.html">Activities</a>
@@ -27,7 +29,7 @@
     </header>
 
     <div class="container">
-        <h1>🌟 Welcome to My Personal Website 🌟</h1>
+        <h1> "My Personal Website" </h1>
         <p><i>Discover who I am and what I love!</i></p>
 
         <hr/>
@@ -85,13 +87,22 @@
     </div>
 
     <script>
-       
         const hamburger = document.getElementById("hamburger");
         const navbar = document.getElementById("navbar");
+        const overlay = document.getElementById("overlay");
 
+       
         hamburger.addEventListener("click", () => {
             navbar.classList.toggle("open");
             hamburger.classList.toggle("active");
+            overlay.style.display = navbar.classList.contains("open") ? "block" : "none";
+        });
+
+     
+        overlay.addEventListener("click", () => {
+            navbar.classList.remove("open");
+            hamburger.classList.remove("active");
+            overlay.style.display = "none";
         });
     </script>
 </body>
