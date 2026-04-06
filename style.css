@@ -9,6 +9,7 @@ body {
   text-align: center;
   scroll-behavior: smooth;
   min-height: 100vh;
+  max-width: fit-content;
 }
 
 /* === HEADER === */
@@ -188,6 +189,7 @@ ol {
   display: inline-block;
 }
 
+
 /* === ACTIVITIES === */
 .ActivityH1{
   font-size: 22px;
@@ -221,6 +223,7 @@ ol {
 /* === RESPONSIVENESS === */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
+
   nav.navbar {
     position: fixed;
     top: 70px;
@@ -238,11 +241,14 @@ ol {
     box-shadow: -5px 0 15px rgba(0,0,0,0.7);
     border-radius: 0 0 0 15px;
   }
+
   nav.navbar.open { transform: translateX(0); }
+
   nav.navbar a {
     font-size: 18px;
     padding-left: 20px;
   }
+
   .profile-section { flex-direction: column; text-align: center; }
   table { width: 100%; font-size: 12px; }
 }
