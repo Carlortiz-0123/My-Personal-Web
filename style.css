@@ -34,14 +34,14 @@ header {
   color: #00ffcc;
   text-decoration: none;
   letter-spacing: 1px;
-  margin-left: 12%;
+  margin-left: 10%;
 }
 
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  margin-right: 12%;
+  margin-right: 10%;
 }
 
 .hamburger span {
