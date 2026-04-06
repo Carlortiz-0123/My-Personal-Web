@@ -114,7 +114,7 @@ nav.navbar a.active::after {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  width: 70%;
+  width: 80%;
   max-width: 100%;
   margin: 40px auto;
   padding: 20px;
