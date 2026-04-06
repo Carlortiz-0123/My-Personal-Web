@@ -187,6 +187,70 @@ ol {
   text-align: left;
   display: inline-block;
 }
+
+/* === UPLOAD FILES === */
+.upload-section {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.upload-section input[type="file"] {
+  margin: 10px;
+  padding: 5px;
+}
+
+.upload-section button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #00ffcc;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.upload-section button:hover {
+  background: #009977;
+  color: white;
+}
+
+#previewContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.preview-item {
+  position: relative;
+}
+
+.preview-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 10px black;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
 /* === ACTIVITIES === */
 .ActivityH1{
   font-size: 22px;
@@ -250,7 +314,7 @@ ol {
   table { width: 100%; font-size: 12px; }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 480px) {
   h1 { font-size: 18px; }
   .logo { font-size: 18px; margin-left: 5%; }
   nav.navbar a { font-size: 16px; }
