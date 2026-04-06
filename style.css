@@ -41,7 +41,7 @@ header {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  margin-right: 5%;
+  margin-right: 12%;
 }
 
 .hamburger span {
