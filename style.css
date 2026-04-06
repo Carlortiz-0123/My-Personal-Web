@@ -41,7 +41,7 @@ header {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  margin-right: 10%;
+  margin-right: 15%;
 }
 
 .hamburger span {
@@ -221,7 +221,6 @@ ol {
 /* === RESPONSIVENESS === */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-
   nav.navbar {
     position: fixed;
     top: 70px;
@@ -239,14 +238,11 @@ ol {
     box-shadow: -5px 0 15px rgba(0,0,0,0.7);
     border-radius: 0 0 0 15px;
   }
-
   nav.navbar.open { transform: translateX(0); }
-
   nav.navbar a {
     font-size: 18px;
     padding-left: 20px;
   }
-
   .profile-section { flex-direction: column; text-align: center; }
   table { width: 100%; font-size: 12px; }
 }
@@ -256,6 +252,4 @@ ol {
   .logo { font-size: 18px; margin-left: 5%; }
   nav.navbar a { font-size: 16px; }
   .profile-section { flex-direction: column; text-align: center; }
-  .hamburger{ flex:flex-wrap; top:0; left:0; right:0;}
-  .container{ max-width:100%; }
 }
