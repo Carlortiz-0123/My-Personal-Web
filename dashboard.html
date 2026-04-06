@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="examplestyle.css">
+  <title>Dashboard</title>
+</head>
+<body>
+  <header class="header">
+    <a href="TRIALFORPORTFOLIO.html" class="logo">My Profile</a>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    
+
+    <nav class="navbar" id="navbar">
+      <a href="TRIALFORPORTFOLIO.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="activities.html">Activities</a>
+      <a href="quiz.html">Quizzes</a>
+      <a href="exam.html">Exams</a>
+
+    </nav>
+  </header>
+
+    <div id="overlay"></div>
+
+  <div class="DashboardH1">
+    <h1>DASHBOARD</h1>
+    
+  </div>
+
+   <script>
+        const hamburger = document.getElementById("hamburger");
+        const navbar = document.getElementById("navbar");
+        const overlay = document.getElementById("overlay");
+
+       
+        hamburger.addEventListener("click", () => {
+            navbar.classList.toggle("open");
+            hamburger.classList.toggle("active");
+            overlay.style.display = navbar.classList.contains("open") ? "block" : "none";
+        });
+
+     
+        overlay.addEventListener("click", () => {
+            navbar.classList.remove("open");
+            hamburger.classList.remove("active");
+            overlay.style.display = "none";
+        });
+    </script>
+</body>
+</html>
