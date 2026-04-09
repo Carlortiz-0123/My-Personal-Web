@@ -3,96 +3,270 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="reg.css">
   <title>Registration Form</title>
- 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url("bgimage.png") no-repeat center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+
+    .content {
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      margin: 20px 0;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+      
+    }
+
+    .h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 20px;
+      font-family: 'Times New Roman', Times, serif;
+      letter-spacing: 3px;
+      text-align: center;
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+
+    .h1 h1 {
+      margin: 0;
+    }
+
+    .lab2 img {
+      height: 50px;
+      width: 50px;
+    }
+
+    .name, .email, .password, .confirm-password, .age, .for-gender, .agree {
+      margin: 10px 0;
+    }
+
+    label {
+      font-weight: bold;
+      color: #00ffcc;
+    }
+
+  input::placeholder {
+  color: #b4eee2;
+  opacity: 1;
+}
+
+  #country {
+    color: #b4eee2;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #00ffcc;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 5px;
+    background-color: transparent;
+  }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 4px ;
+      border: 1px solid #00ffcc;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-top: 7px;
+      margin-bottom: 7px;
+      background-color: transparent;
+      color: #f0f0f0;
+    }
+
+    .radio-group {
+      position: relative;
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      accent-color: #00ffcc;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      color: #00ffcc;
+    }
+
+       .agree {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-top: 15px;
+      font-size: 14px;
+      font-family: sans-serif;
+      font-weight: 400;
+      accent-color: #00ffcc;
+    }
+
+
+    .button {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .button button {
+      flex: 1;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      background-color: transparent;
+    }
+
+    .button button:first-child {
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+    }
+
+    .button button:first-child:hover {
+      background: #00ffcc;
+      color: rgb(15, 4, 62);
+    }
+
+    .button button:last-child {
+      border: 1px solid #3b8004;
+      color: #07bd32;
+    }
+
+    .button button:last-child:hover {
+      background: #07bf0d;
+      color: rgb(8, 59, 2);
+    }
+
+    .error {
+      color: rgb(250, 54, 11);
+      font-size: 13px;
+      margin-top: 4px;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+
+    .success {
+      color: rgb(13, 213, 13);
+      font-size: 13px;
+      margin-top: 4px;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content {
+        padding: 20px;
+      }
+      .h1 {
+        font-size: 18px;
+      }
+      .button {
+        flex-direction: column;
+      }
+      .button button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .h1 {
+        flex-direction: column;
+        font-size: 16px;
+      }
+      .button {
+        flex-direction: column;
+      }
+      .button button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-
-
-  
-
-
   <div class="content">
     <div class="h1">    
-       <a href="activities.html" class="back-link"><img src="back.png" style=" max-height: 40px; max-width: 40px; position:relative; right: 45%;"></a>
+      <a href="activities.html" class="lab2"><img src="back.png" alt="Back"></a>
       <h1>Registration Form</h1>
     </div>
-    <br>
 
+    <!-- Form fields -->
     <div class="name">
-      <label>Full Name</label><br>
+      <label>Full Name</label>
       <input type="text" id="name" placeholder="Enter your Full Name">
       <div id="nameError" class="error"></div>
     </div>
-    <br>
 
     <div class="email">
-      <label>Email Address</label><br>
+      <label>Email Address</label>
       <input type="text" id="email" placeholder="Enter your Email Address">
       <div id="emailError" class="error"></div>
     </div>
-    <br>
 
     <div class="password">
-      <label>Password</label><br>
+      <label>Password</label>
       <input type="password" id="password" placeholder="Enter your Password">
       <div id="passwordError" class="error"></div>
     </div>
-    <br>
 
     <div class="confirm-password">
-      <label>Confirm Password</label><br>
-      <input type="password" id="confirm-password" placeholder="Enter your Password">
+      <label>Confirm Password</label>
+      <input type="password" id="confirm-password" placeholder="Confirm your Password">
       <div id="confirmPasswordError"></div>
     </div>
-    <br>
 
     <div class="age">
-      <label>Age</label><br>
+      <label>Age</label>
       <input type="number" id="age" placeholder="Enter your Age">
       <div id="ageError" class="error"></div>
     </div>
-    <br>
 
     <div class="for-gender">
-      <label>Gender</label><br>
+      <label>Gender</label>
       <div class="radio-group">
-        <input type="radio" name="gender" value="Female" id="Female">
-        <label for="Female">Female</label>
-        <input type="radio" name="gender" value="Male" id="Male">
-        <label for="Male">Male</label>
-        <input type="radio" name="gender" value="Other" id="Other">
-        <label for="Other">Other</label>
+        <input type="radio" name="gender" value="Female" id="Female"><label for="Female">Female</label>
+        <input type="radio" name="gender" value="Male" id="Male"><label for="Male">Male</label>
+        <input type="radio" name="gender" value="Other" id="Other"><label for="Other">Other</label>
       </div>
       <div id="genderError" class="error"></div>
     </div>
-    <br>
 
-   <div class="country">
-  <label for="country">Country</label>
-  <select id="country">
-    <option value=""disabled selected style="color: darkblue;">Select a Country</option>
-    <option value="United States of America"style="color: darkblue;">United States of America</option>
-    <option value="Philippines" style="color: darkblue;">Philippines</option>
-    <option value="China" style="color: darkblue;">China</option>
-    <option value="Japan" style="color: darkblue;">Japan</option>
-    <option value="Canada" style="color: darkblue;">Canada</option>
-    <option value="Russia" style="color: darkblue;">Russia</option>
-    <option value="South Korea" style="color: darkblue;">South Korea</option>
-    <option value="India" style="color: darkblue;">India</option>   
-  </select>
-
+    <div class="country">
+      <label for="country">Country</label>
+      <select id="country">
+        <option value="" style="color: darkblue;" disabled selected>Select a Country</option>
+        <option value="United States of America" style="color: darkblue;">United States of America</option>
+        <option value="Philippines" style="color: darkblue;">Philippines</option>
+        <option value="China" style="color: darkblue;">China</option>
+        <option value="Japan" style="color: darkblue;">Japan</option>
+        <option value="Canada" style="color: darkblue;">Canada</option>
+        <option value="Russia" style="color: darkblue;">Russia</option>
+        <option value="South Korea" style="color: darkblue;">South Korea</option>
+        <option value="India" style="color: darkblue;">India</option>   
+      </select>
       <div id="countryError" class="error"></div>
     </div>
-    <br>
 
     <div class="agree">       
       <input type="checkbox" id="agree">
-      <label for="agree" style="display: inline;">I Agree to the Terms and Condition</label>
+      <label for="agree">I Agree to the Terms and Conditions</label>
       <div id="agreeError" class="error"></div>
     </div>
-    <br>
 
     <div class="button">
       <button type="button" onclick="RegisterUser()">Register</button>
