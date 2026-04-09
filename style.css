@@ -198,8 +198,6 @@ ol {
   color: #00ffcc;
   text-shadow: 5px 5px 5px rgb(14, 14, 14);
 }
-
-
 /* === ACTIVITIES === */
 .ActivityH1{
   font-size: 22px;
@@ -208,9 +206,8 @@ ol {
   letter-spacing: 2px;
   color: #00ffcc;
   text-shadow: 5px 5px 5px rgb(14, 14, 14);
-  margin-bottom: 1rem;
+  margin-bottom: 10% ;
 }
-
 .lab1 {
   display: block;                 
   text-align: center;            
@@ -231,7 +228,6 @@ ol {
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
-
 .lab1:hover {
   background: rgba(0, 255, 204, 0.2);
   color: white;
@@ -247,22 +243,18 @@ ol {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
   color: #00ffcc;
-  text-decoration: none;
-  
+  text-decoration: none; 
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  
+  -webkit-backdrop-filter: blur(15px);  
   width: 200px;              
   margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
-  border: 1px solid #00ffcc;
-  
+  border: 1px solid #00ffcc;  
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
-
 .lab2:hover {
   background: rgba(0, 255, 204, 0.2);
   color: white;
@@ -278,22 +270,18 @@ ol {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
   color: #00ffcc;
-  text-decoration: none;
-  
+  text-decoration: none;  
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  
+  -webkit-backdrop-filter: blur(15px);  
   width: 200px;              
   margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
-  border: 1px solid #00ffcc;
-  
+  border: 1px solid #00ffcc;  
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
-
 .lab3:hover {
   background: rgba(0, 255, 204, 0.2);
   color: white;
