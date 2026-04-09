@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All JavaScript Button Samples</title>
+     <style>
+    body {
+      background: url("bgimage.png") no-repeat center/cover;
+      margin: 0;
+      padding: 20px;
+      scroll-behavior: smooth;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Back link aligned top-left */
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .back-link img {
+      max-height: 40px;
+      max-width: 40px;
+    }
+
+    h1 {
+      color: #00ffcc;
+      text-align: center;
+      margin: 60px 0 40px 0; /* space below back button */
+    }
+
+    .sample {
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #00ffcc;
+      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h2 {
+      color: #00ffcc;
+      margin-top: 0;
+      border-bottom: 2px solid #00ffcc;
+      padding-bottom: 5px;
+    }
+
+    button {
+      background: transparent;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 12px;
+      border: 1px solid #00ffcc;
+      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+      transition: all 0.3s ease; 
+      color: #00ffcc;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover {
+      background: rgba(0, 255, 204, 0.2);
+      color: white;
+      box-shadow: 0 6px 16px rgba(0, 255, 204, 0.7);
+      transform: translateY(-2px); 
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      border: 1px solid #00ffcc;
+      background: transparent;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #f0f0f0;
+      width: calc(100% - 20px);
+      max-width: 300px;
+    }
+    input::placeholder {
+      color: #b4eee2;
+      opacity: 1;
+    }
+
+    .output {
+      color: #f0f0f0;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #00ffcc;
+      background: transparent;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .note {
+      color: #f0f0f0;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    hr {
+      border: 1px solid #00ffcc;
+      margin-top: 40px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      .sample {
+        padding: 15px;
+      }
+      button {
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+      input {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.4rem;
+        margin-top: 80px;
+      }
+      .sample {
+        margin: 15px auto;
+        padding: 12px;
+      }
+      button {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+   
+         <a href="activities.html" class="back-link"><img src="back.png" alt="BACK"></a>
+
+         <h1> All JavaScript Button Samples</h1>
+
+    
+   
+
+    <!-- SAMPLE 1: Basic Alert Button -->
+    <div class="sample"> 
+        <h2> Sample 1: Alert Button (Inline JavaScript)</h2>
+        <button onclick="alert('Hello BSCS1D!')">Click Me for Alert</button>
+        <p class="note">From lecture: &lt;button onclick="alert('Hello!')"&gt;</p>
+    </div>
+
+    <!-- SAMPLE 2: Function Declaration -->
+    <div class="sample">
+        <h2> Sample 2: Function Button</h2>
+        <button onclick="sayHello()" >Click Me for Function</button>
+        <div class="output" 
+            style="color: #f0f0f0; padding: 8px;
+            margin: 5px;
+            border: 1px solid #00ffcc;
+            background: transparent;
+            border-radius: 4px;
+            font-size: 14px;" id="output2"  >
+            </div>
+        <p class="note"  >From lecture: function greet(name) { return "Hello, " + name + "!"; }</p>
+
+    </div>
+
+    <!-- SAMPLE 3: Change Text -->
+    <div class="sample">
+        <h2> Sample 3: Change Text Button</h2>
+        <p id="demo3" style="color: #f0f0f0;">This text will change.</p>
+        <button onclick="changeText()">Click to Change Text</button>
+        <p class="note">Using document.getElementById().innerHTML</p>
+    </div>
+
+    <!-- SAMPLE 4: Counter -->
+    <div class="sample">
+        <h2> Sample 4: Counter Button (let and increment)</h2>
+        <p style="color: #f0f0f0;">You clicked: <span id="countDisplay">0</span> times</p>
+        <button onclick="incrementCounter()">Click to Count</button>
+        <p class="note">From lecture: let counter = 0; counter++;</p>
+    </div>
+
+    <!-- SAMPLE 5: Input Field -->
+    <div class="sample">
+        <h2> Sample 5: Input Button</h2>
+        <input type="text" id="nameInput" placeholder="Enter your name" style="color: #f0f0f0;">
+        <button onclick="greetUser()">Greet Me</button>
+        <div class="output" 
+            style="color: #f0f0f0; padding: 8px;
+            margin: 5px;
+            border: 1px solid #00ffcc;
+            background: transparent;
+            border-radius: 4px;
+            font-size: 14px;" id="greeting">
+            </div>
+        <p class="note">From lecture: let message = "Hello, " + name + "!";</p>
+    </div>
+
+    <!-- SAMPLE 6: If Statement -->
+    <div class="sample">
+        <h2> Sample 6: If Statement Button</h2>
+        <input type="number" id="ageInput" placeholder="Enter your age" style="color: #f0f0f0;">
+        <button onclick="checkAge()">Check Age</button>
+        <div class="output" 
+            style="color: #f0f0f0; padding: 8px;
+            margin: 5px;
+            border: 1px solid #00ffcc;
+            background: transparent;
+            border-radius: 4px;
+            font-size: 14px;"id="ageResult">
+            </div>
+        <p class="note">From lecture: if (age >= 18) { adult } else { minor }</p>
+    </div>
+
+    <!-- SAMPLE 7: Multiple Parameters -->
+    <div class="sample">
+        <h2> Sample 7: Multiple Parameters (Add Numbers)</h2>
+        <input type="number" id="num1" placeholder="First number" style="color: #f0f0f0;">
+        <input type="number" id="num2" placeholder="Second number" style="color: #f0f0f0;">
+        <button onclick="addNumbers()">Add Numbers</button>
+        <button onclick="sub()">Sub Numbers</button>
+        <button onclick="mul()">Mul Numbers</button>
+        <button onclick="div()">Div Numbers</button>
+        <div class="output" id="sumResult"   
+           style=" color: #f0f0f0; padding: 8px;
+            margin: 5px;
+            border: 1px solid #00ffcc;
+            background: transparent;
+            border-radius: 4px;
+            font-size: 14px;"id="ageResult">>Result: 0</div>
+
+        <p class="note">From lecture: function add(a, b) { return a + b; }</p>
+    </div>
+
+    <!-- SAMPLE 8: Toggle Button -->
+    <div class="sample">
+        <h2> Sample 8: Toggle Button (Boolean)</h2>
+        <div id="light" style="background-color: gray; padding: 20px; text-align: center; border-radius: 5px; margin-bottom: 10px;">
+            Light is OFF
+        </div>
+        <button onclick="toggleLight()">Toggle Light</button>
+        <p class="note">From lecture: let isLoggedIn = true; !isLoggedIn (NOT operator)</p>
+    </div>
+
+    <!-- SAMPLE 9: Loop Button -->
+    <div class="sample">
+        <h2> Sample 9: Loop Button</h2>
+        <button onclick=" countToFive()">Count to 5</button>
+        <button onclick="clearList()">Clear List</button>
+        <ul id="numberList"
+            style=" color: #f0f0f0; 
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #00ffcc;
+            background: transparent;
+            border-radius: 4px;
+            font-size: 14px;"></ul>
+        <p class="note">From lecture: for (let i = 1; i <= 5; i++) { }</p>
+    </div>
+
+    <!-- SAMPLE 10: All Concepts Combined -->
+    <div class="sample">
+        <h2> Sample 10: All Concepts Demo</h2>
+        
+        <h3 style="color: #00ffcc;">Variables Demo</h3>
+        <button onclick="showVariables()">Show Variables</button>
+        
+        <h3 style="color: #00ffcc;">Operators Demo</h3>
+        <button onclick="doMath()">Calculate 10 + 5</button>
+        
+        <h3 style="color: #00ffcc;">Grade Checker</h3>
+
+        <input type="number" id="testScore" placeholder="Enter score (0-100)"
+         style=" color: #f0f0f0; 
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #00ffcc;
+            background: transparent;
+            border-radius: 4px;
+            font-size: 14px;">
+        <button onclick="checkGrade()">Check Grade</button>
+        
+        <h3 style="color: #00ffcc;">Function with Return</h3>
+        <button onclick="useFunction()">Greet (uses function)</button>
+        
+        <div class="output" id="demoOutput"
+         style=" color: #f0f0f0; 
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #00ffcc;
+            background: transparent;
+            border-radius: 4px;
+            font-size: 14px;">
+            Results will appear here and in console (F12)
+        </div>
+    </div>
+
+    <hr>
+    <p style="text-align: center; color: #00ffcc;">🔍 Open Browser Console (F12) to see all console.log outputs</p>
+
+    <script>
+        // ===========================================
+        // SAMPLE 2: Function Declaration
+        // ===========================================
+        function sayHello() {
+            let message = "Hello from the function!";
+            alert(message);
+            document.getElementById("output2").innerHTML = message;
+            console.log("Sample 2: Button was clicked!");
+        }
+
+        // ===========================================
+        // SAMPLE 3: Change Text
+        // ===========================================
+        function changeText() {
+            document.getElementById("demo3").innerHTML = "Text changed! Button was clicked at " + new Date().toLocaleTimeString();
+            console.log("Sample 3: Text changed successfully");
+        }
+
+        // ===========================================
+        // SAMPLE 4: Counter (using let)
+        // ===========================================
+        let count = 0;
+        function incrementCounter() {
+            count++;
+            document.getElementById("countDisplay").innerHTML = count;
+            console.log("Sample 4: Count = " + count);
+        }
+
+        // ===========================================
+        // SAMPLE 5: Input Field
+        // ===========================================
+        function greetUser() {
+            let name = document.getElementById("nameInput").value;
+            if (name === "") {
+                name = "Guest";
+            }
+            let message = "Hello, " + name + "!";
+            document.getElementById("greeting").innerHTML = message;
+            console.log("Sample 5: " + message);
+        }
+
+        // ===========================================
+        // SAMPLE 6: If Statement
+        // ===========================================
+        function checkAge() {
+            let age = document.getElementById("ageInput").value;
+            let result;
+            
+            if (age >= 18) {
+                result = "You are an adult! (Age: " + age + ")";
+                console.log("Sample 6: Adult - " + age);
+            } else {
+                result = "You are a minor! (Age: " + age + ")";
+                console.log("Sample 6: Minor - " + age);
+            }
+            
+            document.getElementById("ageResult").innerHTML = result;
+        }
+
+        // ===========================================
+        // SAMPLE 7: Multiple Parameters
+        // ===========================================
+        function addNumbers() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+            let result = calculateSum(num1, num2);
+            
+            document.getElementById("sumResult").innerHTML = 
+            "Result: " + num1 + " + " + num2 + " = " + result;
+            console.log("Add: " + num1 + " + " + num2 + " = " + result);
+        }
+        
+        function calculateSum(a, b) {
+            return a + b;
+        }
+
+      function sub() {
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+        let result = calculateSub(num1, num2);
+
+        document.getElementById("sumResult").innerHTML = 
+        "Result: " + num1 + " - " + num2 + " = " + result;
+        console.log("Subtract: " + num1 + " - " + num2 + " = " + result);
+        }
+        
+        function calculateSub(a, b) {
+            return a - b;
+        }
+              
+      function mul() {
+        let num1 = Number(document.getElementById("num1").value);
+        let num2 = Number(document.getElementById("num2").value);
+        let result = calculateMul(num1, num2);
+        
+        document.getElementById("sumResult").innerHTML = 
+        "Result: " + num1 + " × " + num2 + " = " + result;
+        console.log("Multiply: " + num1 + " * " + num2 + " = " + result);
+        }
+        
+        function calculateMul(a, b) {
+            return a * b;
+        }
+
+        function div() {
+            let num1 = Number(document.getElementById("num1").value);
+            let num2 = Number(document.getElementById("num2").value);
+  
+         if (num2 === 0) {
+         document.getElementById("sumResult").innerHTML = "Error: Division by zero!";
+         return;
+        }
+  
+         let result = num1 / num2;
+         document.getElementById("sumResult").innerHTML = "Result: " + num1 + " ÷ " + num2 + " = " + result;
+        }
+        
+       
+
+        // ===========================================
+        // SAMPLE 8: Toggle Button (Boolean)
+        // ===========================================
+        let isLightOn = false;
+        function toggleLight() {
+            isLightOn = !isLightOn;
+            
+            let light = document.getElementById("light");
+            
+            if (isLightOn) {
+                light.innerHTML = "Light is ON";
+                light.style.backgroundColor = "#00ffcc";
+                light.style.color = "black";
+                console.log("Sample 8: Light turned ON");
+            } else {
+                light.innerHTML = "Light is OFF";
+                light.style.backgroundColor = "gray";
+                light.style.color = "white";
+                console.log("Sample 8: Light turned OFF");
+            }
+        }
+
+        // ===========================================
+        // SAMPLE 9: Loop Button
+        // ===========================================
+        function countToFive() {
+            let list = document.getElementById("numberList");
+            list.innerHTML = ""; // Clear list first
+            
+            for (let i = 1; i <= 5; i++) {
+                list.innerHTML += " <li> Number: " + i + " </li> ";
+                console.log("Sample 9: Count: " + i);
+            }
+        }
+        
+        function clearList() {
+            document.getElementById("numberList").innerHTML = "";
+            console.log("Sample 9: List cleared");
+        }
+
+        // ===========================================
+        // SAMPLE 10: All Concepts Combined
+        // ===========================================
+        let clickCount = 0;
+        const appName = "Button Demo";
+        
+        function showVariables() {
+            clickCount++;
+            document.getElementById("demoOutput").innerHTML = 
+                "let variable (clickCount): " + clickCount + "<br>" +
+                "const variable (appName): " + appName;
+            console.log("Sample 10: let count =", clickCount);
+            console.log("Sample 10: const name =", appName);
+        }
+        
+        function doMath() {
+            let a = 10;
+            let b = 5;
+            
+            let addition = a + b;
+            let subtraction = a - b;
+            let multiplication = a * b;
+            let division = a / b;
+            
+            document.getElementById("demoOutput").innerHTML = 
+                "10 + 5 = " + addition + "<br>" +
+                "10 - 5 = " + subtraction + "<br>" +
+                "10 × 5 = " + multiplication + "<br>" +
+                "10 ÷ 5 = " + division;
+            
+            console.log("Sample 10: Addition:", addition);
+            console.log("Sample 10: Subtraction:", subtraction);
+            console.log("Sample 10: Multiplication:", multiplication);
+            console.log("Sample 10: Division:", division);
+        }
+        
+        function checkGrade() {
+            let score = Number(document.getElementById("testScore").value);
+            let grade;
+            
+            if (score >= 90) {
+                grade = "A";
+            } else if (score >= 80) {
+                grade = "B";
+            } else if (score >= 70) {
+                grade = "C";
+            } else if (score >= 60) {
+                grade = "D";
+            } else {
+                grade = "F";
+            }
+            
+            document.getElementById("demoOutput").innerHTML = 
+                "Score: " + score + "<br>" +
+                "Grade: " + grade;
+            
+            console.log("Sample 10: Score =", score, "Grade =", grade);
+        }
+        
+        function useFunction() {
+            let name = prompt("Enter your name:", "Student");
+            if (name) {
+                let message = greet(name);
+                document.getElementById("demoOutput").innerHTML = message;
+                console.log("Sample 10:", message);
+            }
+        }
+        
+        function greet(name) {
+            return "Hello, " + name + "! Welcome to JavaScript!";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reg.css">
+  <title>Registration Form</title>
+ 
+</head>
+<body>
+
+
+  
+
+
+  <div class="content">
+    <div class="h1">    
+       <a href="activities.html" class="back-link"><img src="back.png" style=" max-height: 40px; max-width: 40px; margin-right: 100rem; "></a>
+      <h1>Registration Form</h1>
+    </div>
+    <br>
+
+    <div class="name">
+      <label>Full Name</label><br>
+      <input type="text" id="name" placeholder="Enter your Full Name">
+      <div id="nameError" class="error"></div>
+    </div>
+    <br>
+
+    <div class="email">
+      <label>Email Address</label><br>
+      <input type="text" id="email" placeholder="Enter your Email Address">
+      <div id="emailError" class="error"></div>
+    </div>
+    <br>
+
+    <div class="password">
+      <label>Password</label><br>
+      <input type="password" id="password" placeholder="Enter your Password">
+      <div id="passwordError" class="error"></div>
+    </div>
+    <br>
+
+    <div class="confirm-password">
+      <label>Confirm Password</label><br>
+      <input type="password" id="confirm-password" placeholder="Enter your Password">
+      <div id="confirmPasswordError"></div>
+    </div>
+    <br>
+
+    <div class="age">
+      <label>Age</label><br>
+      <input type="number" id="age" placeholder="Enter your Age">
+      <div id="ageError" class="error"></div>
+    </div>
+    <br>
+
+    <div class="for-gender">
+      <label>Gender</label><br>
+      <div class="radio-group">
+        <input type="radio" name="gender" value="Female" id="Female">
+        <label for="Female">Female</label>
+        <input type="radio" name="gender" value="Male" id="Male">
+        <label for="Male">Male</label>
+        <input type="radio" name="gender" value="Other" id="Other">
+        <label for="Other">Other</label>
+      </div>
+      <div id="genderError" class="error"></div>
+    </div>
+    <br>
+
+   <div class="country">
+  <label for="country">Country</label>
+  <select id="country">
+    <option value=""disabled selected style="color: darkblue;">Select a Country</option>
+    <option value="United States of America"style="color: darkblue;">United States of America</option>
+    <option value="Philippines" style="color: darkblue;">Philippines</option>
+    <option value="China" style="color: darkblue;">China</option>
+    <option value="Japan" style="color: darkblue;">Japan</option>
+    <option value="Canada" style="color: darkblue;">Canada</option>
+    <option value="Russia" style="color: darkblue;">Russia</option>
+    <option value="South Korea" style="color: darkblue;">South Korea</option>
+    <option value="India" style="color: darkblue;">India</option>   
+  </select>
+
+      <div id="countryError" class="error"></div>
+    </div>
+    <br>
+
+    <div class="agree">       
+      <input type="checkbox" id="agree">
+      <label for="agree" style="display: inline;">I Agree to the Terms and Condition</label>
+      <div id="agreeError" class="error"></div>
+    </div>
+    <br>
+
+    <div class="button">
+      <button type="button" onclick="RegisterUser()">Register</button>
+      <button type="button" onclick="ClearForm()">Clear Form</button>
+    </div>
+  </div>
+
+  <script>
+  // Global array to store all registrations
+  let registrations = [];
+
+  function getFormValue() {
+    return {
+      name: document.getElementById("name").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      password: document.getElementById("password").value,
+      confirmPassword: document.getElementById("confirm-password").value,
+      age: document.getElementById("age").value,
+      gender: document.querySelector('input[name="gender"]:checked') ? 
+              document.querySelector('input[name="gender"]:checked').value : "",
+      country: document.getElementById("country").value,
+      agree: document.getElementById("agree").checked
+    };
+  }
+
+  function showError(id, message) {
+    const el = document.getElementById(id);
+    el.textContent = message;
+    el.className = "error";
+  }
+
+  function showSuccess(id, message) {
+    const el = document.getElementById(id);
+    el.textContent = message;
+    el.className = "success";
+  }
+
+  function clearMessages() {
+    document.querySelectorAll(".error, .success").forEach(el => el.textContent = "");
+  }
+
+  function RegisterUser() {
+    clearMessages();
+    let value = getFormValue();
+    let valid = true;
+
+    if (value.name === "") {
+      showError("nameError", "Full name is required");
+      valid = false;
+    }
+
+    if (value.email === "") {
+      showError("emailError", "Email is required");
+      valid = false;
+    }
+
+    if (value.password === "") {
+      showError("passwordError", "Password is required");
+      valid = false;
+    } else if (value.password.length < 6) {
+      showError("passwordError", "Password must be at least 6 characters");
+      valid = false;
+    }
+
+    if (value.confirmPassword === "") {
+      showError("confirmPasswordError", "Confirm password is required");
+      valid = false;
+    } else if (value.password !== value.confirmPassword) {
+      showError("confirmPasswordError", "Password do not match");
+      valid = false;
+    } else {
+      showSuccess("confirmPasswordError", "Password match");
+    }
+
+    if (value.age === "") {
+      showError("ageError", "Age is required");
+      valid = false;
+    } else if (value.age < 18 || value.age > 120) {
+      showError("ageError", "Age must be between 18 and 120");
+      valid = false;
+    }
+
+    if (value.gender === "") {
+      showError("genderError", "Please select a gender");
+      valid = false;
+    }
+
+    if (value.country === "") {
+      showError("countryError", "Please select a country");
+      valid = false;
+    }
+
+    if (!value.agree) {
+      showError("agreeError", "You must agree to the terms and conditions");
+      valid = false;
+    }
+
+    if (valid) {
+      // Save registration
+      registrations.push(value);
+
+     // Build alert message with ALL registrations
+     let message = "All Registrations:\n\n";
+     for (let i = 0; i < registrations.length; i++) {
+      let reg = registrations[i];
+      message += "#" + (i + 1) + "\n";
+      message += "Name: " + reg.name + "\n";
+      message += "Email: " + reg.email + "\n";
+      message += "Age: " + reg.age + "\n";
+      message += "Gender: " + reg.gender + "\n";
+     message += "Country: " + reg.country + "\n\n";
+    }
+    alert(message);
+    }
+  }
+
+  function ClearForm() {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("confirm-password").value = "";
+    document.getElementById("age").value = "";
+    document.querySelectorAll('input[name="gender"]').forEach(el => el.checked = false);
+    document.getElementById("country").value = "";
+    document.getElementById("agree").checked = false;
+    clearMessages();
+  }
+</script>
+
+
+
+</body>
+</html>
