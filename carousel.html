@@ -11,7 +11,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;  
+  max-height: 100vh;  
+  max-width: 100vh;
   padding: 1rem;
   scroll-behavior: smooth;
   position: relative;
@@ -136,18 +137,20 @@ h2 {
 }
 
 
-@media (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   h2 { font-size: 2rem; }
   .carousel-item { width: 180px; height: 120px; }
 }
 
-@media (max-width: 768px) {
+@media screen and (min-width: 768px)
+              and (max-width: 1023px;
+  {
   h2 { font-size: 1.6rem; }
   .carousel-item { width: 150px; height: 100px; }
   .item-btn { width: 120px; font-size: 12px; padding: 10px; }
 }
 
-@media (max-width: 480px) {
+@media screen and  (max-width: 767px) {
   h2 { font-size: 1.2rem; letter-spacing: 1px; }
   .carousel { gap: 0.6rem; }
   .carousel-item { width: 120px; height: 80px; }
