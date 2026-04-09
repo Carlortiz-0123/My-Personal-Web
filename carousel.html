@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Simple carousel · example</title>
     <style>
         /* just the basics — no extra decorations */
@@ -16,16 +16,16 @@
             background: url("bgimage.png") no-repeat center/cover;
             font-family: Arial, Helvetica, sans-serif;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             min-height: 100vh;
-            padding: 1rem;
+            padding: clamp(0.5rem, 3vw, 1rem);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         .card {
-           
-            max-width: 700px;
+            max-width: clamp(320px, 95vw, 700px);
             width: 100%;
             background: transparent;
             backdrop-filter: blur(15px);
@@ -33,35 +33,36 @@
             border-radius: 12px;
             border: 1px solid #00ffcc;
             box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
-            padding: 2rem 1.5rem 2.5rem 1.5rem;
+            padding: clamp(1rem, 5vw, 2rem) clamp(1rem, 4vw, 1.5rem) clamp(1.5rem, 6vw, 2.5rem) clamp(1rem, 4vw, 1.5rem);
             text-align: center;
         }
 
         h2 {
-        
             font-family: fantasy;
-            letter-spacing: 2px;
+            letter-spacing: clamp(1px, 0.5vw, 2px);
             color: #00ffcc;
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1rem, 4vw, 2rem);
             font-weight: 500;
-            font-size: 2rem;
+            font-size: clamp(1.4rem, 6vw, 2rem);
+            position: relative;
+            line-height: 1.2;
         }
 
         /* ---------- SIMPLE CAROUSEL ---------- */
         .carousel {
             display: flex;
             overflow-x: auto;
-            gap: 1.2rem;
+            gap: clamp(0.6rem, 2.5vw, 1.2rem);
             scroll-snap-type: x mandatory;
-            padding: 0.5rem 0.2rem 1.5rem 0.2rem;
-            /* hide scrollbar if you want cleaner look (optional) */
+            padding: clamp(0.3rem, 2vh, 0.5rem) clamp(0.1rem, 1vw, 0.2rem) clamp(0.8rem, 4vh, 1.5rem) clamp(0.1rem, 1vw, 0.2rem);
             scrollbar-width: thin;
             scrollbar-color: #063c31 #e5d9ff;
+            -webkit-overflow-scrolling: touch;
         }
 
         /* for Chrome/Safari */
         .carousel::-webkit-scrollbar {
-            height: 8px;
+            height: clamp(4px, 1.5vw, 8px);
         }
         .carousel::-webkit-scrollbar-track {
             background: #e5d9ff;
@@ -73,10 +74,9 @@
         }
 
         .carousel-item {
-            
-            flex: 0 0  auto;
-            width: 230px;
-            height: 130px;
+            flex: 0 0 auto;
+            width: clamp(140px, 32vw, 230px);
+            height: clamp(90px, 22vw, 130px);
             background: transparent;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -86,69 +86,123 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 8vw, 2.5rem);
             color: white;
             font-weight: bold;
-           
+            min-width: clamp(140px, 32vw, 230px);
         }
 
         /* make images fit (if you use real images) */
         .carousel-item img {
-            width: 230px;
+            width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 12px;
         }
 
         .note {
-            margin-top: 5rem;
-             background: transparent;
+            margin-top: clamp(2rem, 8vw, 5rem);
+            background: transparent;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-radius: 12px;
             border: 1px solid #00ffcc;
             box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
-            padding: 0.8rem 1.2rem;
+            padding: clamp(0.6rem, 3vh, 0.8rem) clamp(0.8rem, 4vw, 1.2rem);
             color: #f0f0f0;
-            font-size: 1rem;
+            font-size: clamp(0.85rem, 3vw, 1rem);
+            display: inline-block;
+            max-width: 90%;
         }
 
         .pic {              
-         text-align: center;           
-         font-size: 16px;
-         font-weight: bold;
-         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-         letter-spacing: 1px;
-         color: #00ffcc;
-         text-decoration: none;
-         background: rgba(255, 255, 255, 0.08);
-         backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-         width: 200px;              
-         margin: 30px auto;         
-         padding: 12px 20px;
-         border-radius: 12px;
-         border: 1px solid #00ffcc;
-         box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
-         transition: all 0.3s ease; 
-         position: relative;    
-         top: 20px;
-         bottom:20px;
-     }
+            text-align: center;           
+            font-size: clamp(12px, 3.5vw, 16px);
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: clamp(0.5px, 0.3vw, 1px);
+            color: #00ffcc;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            width: clamp(120px, 28vw, 200px);              
+            margin: clamp(10px, 3vw, 30px) auto;         
+            padding: clamp(8px, 2.5vh, 12px) clamp(15px, 5vw, 20px);
+            border-radius: 12px;
+            border: 1px solid #00ffcc;
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+            transition: all 0.3s ease; 
+            display: inline-block;
+            position: relative;
+        }
 
-       .pic:hover {
-         background: rgba(0, 255, 204, 0.2);
-         color: white;
-         box-shadow: 0 6px 16px rgba(0, 255, 204, 0.7);
-         transform: translateY(-2px);   
-     }
+        .pic:hover {
+            background: rgba(0, 255, 204, 0.2);
+            color: white;
+            box-shadow: 0 6px 16px rgba(0, 255, 204, 0.7);
+            transform: translateY(-2px);   
+        }
+
+        /* Back button fix */
+        .back-link img {
+            height: clamp(28px, 6vw, 40px);
+            width: clamp(28px, 6vw, 40px);
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+
+        /* Landscape mobile fix */
+        @media (max-height: 500px) and (orientation: landscape) {
+            body {
+                align-items: flex-start;
+                padding: clamp(0.3rem, 2vw, 0.8rem);
+            }
+            .card {
+                padding: clamp(0.8rem, 4vw, 1.5rem) clamp(0.8rem, 3vw, 1.2rem);
+                margin-top: 10px;
+            }
+            h2 {
+                margin-bottom: clamp(0.8rem, 3vw, 1.2rem);
+                font-size: clamp(1.2rem, 5vw, 1.6rem);
+            }
+            .note {
+                margin-top: clamp(1rem, 4vw, 2rem);
+                font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 360px) {
+            body {
+                padding: 0.4rem;
+            }
+            .card {
+                padding: 0.8rem 0.6rem 1.2rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            body {
+                padding: 0.3rem;
+            }
+            .card {
+                padding: 0.6rem 0.4rem 1rem 0.4rem;
+                border-radius: 8px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="card">
-     
-        <h2>  <a href="activities.html" class="back-link"><img src="back.png" style=" height: 40px; width: 40px; position: relative; right: 17%; top:10px;"></a>
- Simple Carousel</h2>
+        <h2>  
+            <a href="activities.html" class="back-link">
+                <img src="back.png" alt="Back">
+            </a>
+            Simple Carousel
+        </h2>
 
         <!-- === CAROUSEL (only HTML + CSS) === -->
         <div class="carousel">
@@ -170,21 +224,24 @@
         <a href="#item6" class="pic">Item 6</a>
 
         <div class="note">
-             swipe / drag →  ·  snap enabled  ·  pure CSS
+            swipe / drag →  ·  snap enabled  ·  pure CSS
         </div>
 
         <!-- short explanation -->
-        <p style= " margin-top: 1.8rem;
-             background: transparent;
+        <p style="margin-top: 1.8rem;
+            background: transparent;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-radius: 12px;
             border: 1px solid #00ffcc;
             box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
-            padding: 0.8rem 1.2rem;
+            padding: clamp(0.6rem, 3vh, 0.8rem) clamp(0.8rem, 4vw, 1.2rem);
             color: #f0f0f0;
-            font-size: 1rem;">
-             <code>display: flex</code> + <code>overflow-x: auto</code> + <code>scroll-snap-type</code>
+            font-size: clamp(0.85rem, 3vw, 1rem);
+            margin: 0 auto;
+            display: inline-block;
+            max-width: 90%;">
+            <code>display: flex</code> + <code>overflow-x: auto</code> + <code>scroll-snap-type</code>
         </p>
     </div>
 </body>
