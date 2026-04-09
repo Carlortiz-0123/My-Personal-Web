@@ -1,313 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Simple carousel · example</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple carousel · example</title>
+    <style>
+        /* just the basics — no extra decorations */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        body {
+            background: #f0eaff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1rem;
+        }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-    }
+        .card {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 1.5rem 2.5rem 1.5rem;
+            box-shadow: 0 15px 30px #b9a6dd;
+            text-align: center;
+        }
 
-    body {
-      background: url("bgimage.png") no-repeat center/cover;
-      background-attachment: fixed;
-      font-family: Arial, Helvetica, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-      padding: 8px;
-      position: relative;
-    }
+        h2 {
+            color: #2c2152;
+            margin-bottom: 1.8rem;
+            font-weight: 500;
+            font-size: 2rem;
+        }
 
-    .card {
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 12px;
-      border: 1px solid #00ffcc;
-      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-      margin: 8px auto;
-      padding: 15px;
-      flex-shrink: 0;
-    }
+        /* ---------- SIMPLE CAROUSEL ---------- */
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.2rem;
+            scroll-snap-type: x mandatory;
+            padding: 0.5rem 0.2rem 1.5rem 0.2rem;
+            /* hide scrollbar if you want cleaner look (optional) */
+            scrollbar-width: thin;
+            scrollbar-color: #a58bd4 #e5d9ff;
+        }
 
-    h2 {
-      margin: 0 0 1.2rem 0;
-      font-weight: 700;
-      font-size: clamp(1.1rem, 6vw, 2.2rem);
-      font-family: 'Times New Roman', Times, serif;
-      letter-spacing: 1.5px;
-      color: #00ffcc;
-      text-shadow: 2px 2px 4px rgb(14, 14, 14);
-      line-height: 1.2;
-      word-break: break-word;
-    }
+        /* for Chrome/Safari */
+        .carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .carousel::-webkit-scrollbar-track {
+            background: #e5d9ff;
+            border-radius: 20px;
+        }
+        .carousel::-webkit-scrollbar-thumb {
+            background: #a58bd4;
+            border-radius: 20px;
+        }
 
-    /* ---------- SIMPLE CAROUSEL ---------- */
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: clamp(0.4rem, 3vw, 0.8rem);
-      scroll-snap-type: x mandatory;
-      padding: 0.5rem 0.2rem 1rem 0.2rem;
-      scrollbar-width: thin;
-      scrollbar-color: #067973 #e5d9ff;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      max-width: 100%;
-    }
+        .carousel-item {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 220px;
+            height: 150px;
+            background: #7a62b5;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 12px #9d87cf;
+            border: 3px solid white;
+        }
 
-    .carousel::-webkit-scrollbar {
-      height: 6px;
-    }
-    .carousel::-webkit-scrollbar-track {
-      background: #e5d9ff;
-      border-radius: 10px;
-    }
-    .carousel::-webkit-scrollbar-thumb {
-      background: #1f6859;
-      border-radius: 10px;
-    }
+        /* make images fit (if you use real images) */
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.4rem;
+        }
 
-    .carousel-item {
-      scroll-snap-align: start;
-      flex: 0 0 auto;
-      width: clamp(90px, 32vw, 180px);
-      height: clamp(65px, 20vw, 130px);
-      background: transparent;
-      border-radius: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #00ffcc;
-      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
-      min-width: clamp(90px, 32vw, 180px);
-    }
-
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 1.1rem;
-    }
-
-    .note {
-      margin: 1rem 0;
-      color: #00ffcc;
-      background: transparent;
-      border: 1px solid #00ffcc;
-      box-shadow: 0 0px 7px rgba(0, 255, 204, 0.7);
-      padding: clamp(0.5rem, 2.5vh, 0.7rem) clamp(0.8rem, 4vw, 1rem);
-      border-radius: 2.5rem;
-      font-size: clamp(0.75rem, 3vw, 0.9rem);
-      display: block;
-      width: 100%;
-      max-width: 280px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .p {
-      margin: 1rem 0;
-      color: #00ffcc;
-      background: transparent;
-      border: 1px solid #00ffcc;
-      box-shadow: 0 0px 7px rgba(0, 255, 204, 0.7);
-      padding: clamp(0.5rem, 2.5vh, 0.7rem) clamp(0.8rem, 4vw, 1rem);
-      border-radius: 2.5rem;
-      font-size: clamp(0.75rem, 3vw, 0.9rem);
-      display: block;
-      width: 100%;
-      max-width: 280px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-      margin: 1rem 0;
-      padding: 0 0.5rem;
-    }
-
-    .item-btn {
-      font-size: clamp(10px, 3vw, 13px);
-      font-weight: bold;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      letter-spacing: 0.8px;
-      color: #00ffcc;
-      text-decoration: none;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      min-width: clamp(75px, 22vw, 130px);
-      padding: clamp(6px, 2vh, 10px) clamp(12px, 4vw, 18px);
-      border-radius: 10px;
-      border: 1px solid #00ffcc;
-      box-shadow: 0 0px 7px rgba(0, 255, 204, 0.7);
-      transition: all 0.3s ease;
-      flex: 1 1 clamp(75px, 22vw, 130px);
-      max-width: clamp(75px, 22vw, 130px);
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .item-btn:hover {
-      background: rgba(0, 255, 204, 0.2);
-      color: white;
-      box-shadow: 0 3px 10px rgba(0, 255, 204, 0.7);
-      transform: translateY(-2px);
-    }
-
-    .back-link {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      z-index: 100;
-      display: block;
-    }
-    .back-link img {
-      max-height: 35px;
-      max-width: 35px;
-      height: auto;
-      width: auto;
-    }
-
-    /* ---------- ULTRA RESPONSIVE BREAKPOINTS ---------- */
-    @media (max-width: 400px) {
-      body {
-        padding: 5px;
-      }
-      .card {
-        padding: 12px;
-        margin: 5px auto;
-        max-width: 100%;
-      }
-      .carousel-item {
-        width: clamp(80px, 30vw, 160px);
-        height: clamp(60px, 18vw, 120px);
-      }
-    }
-
-    @media (max-width: 360px) {
-      body {
-        padding: 4px;
-      }
-      .card {
-        padding: 10px;
-        margin: 4px 0;
-      }
-      h2 {
-        font-size: clamp(1rem, 7vw, 1.8rem);
-        letter-spacing: 1px;
-      }
-      .carousel {
-        gap: 0.4rem;
-        padding: 0.4rem 0.1rem 0.8rem 0.1rem;
-      }
-      .carousel-item {
-        border-radius: 1rem;
-      }
-      .btn-container {
-        gap: 0.3rem;
-        padding: 0 0.3rem;
-      }
-    }
-
-    @media (max-width: 320px) {
-      body {
-        padding: 3px;
-      }
-      .card {
-        padding: 8px;
-        border-radius: 8px;
-      }
-      .item-btn {
-        font-size: clamp(9px, 4vw, 12px);
-        padding: 5px 10px;
-      }
-    }
-
-    /* Landscape fix for phones */
-    @media (max-height: 500px) and (orientation: landscape) {
-      body {
-        padding: 5px;
-        justify-content: flex-start;
-      }
-      .card {
-        margin: 5px auto;
-        max-width: 95%;
-      }
-      h2 {
-        margin-bottom: 0.8rem;
-        font-size: clamp(1rem, 5vw, 1.6rem);
-      }
-      .carousel {
-        padding: 0.3rem 0.1rem 0.6rem 0.1rem;
-      }
-      .note, .p {
-        margin: 0.5rem 0;
-        padding: 0.4rem 0.8rem;
-        font-size: 0.75rem;
-      }
-      .btn-container {
-        margin: 0.5rem 0;
-      }
-    }
-
-  </style>
+        .note {
+            margin-top: 1.8rem;
+            color: #4a3977;
+            background: #eee5ff;
+            padding: 0.8rem 1.2rem;
+            border-radius: 3rem;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <a href="activities.html" class="back-link">
-      <img src="back.png" alt="Back">
-    </a>
-   
-    <h2>Simple Carousel</h2>
+    <div class="card">
+        <h2>🖼️ simple carousel</h2>
 
-    <div class="carousel">
-      <div class="carousel-item" id="item1"> <img src="1st.jpg" alt="Item 1"></div>
-      <div class="carousel-item" id="item2"> <img src="2nd.jpg" alt="Item 2"></div>
-      <div class="carousel-item" id="item3"> <img src="3rd.jpg" alt="Item 3"></div>
-      <div class="carousel-item" id="item4"> <img src="4th.jpg" alt="Item 4"></div>
-      <div class="carousel-item" id="item5"> <img src="5th.jpg" alt="Item 5"></div>
-      <div class="carousel-item" id="item6"> <img src="6th.jpg" alt="Item 6"></div>
+        <!-- === CAROUSEL (only HTML + CSS) === -->
+        <div class="carousel">
+            <!-- slide 1 (using colored divs with emoji – you can replace with <img> ) -->
+            <div class="carousel-item">🌄 1</div>
+            <div class="carousel-item">🏖️ 2</div>
+            <div class="carousel-item">🏙️ 3</div>
+            <div class="carousel-item">🌲 4</div>
+            <div class="carousel-item">🌃 5</div>
+            <div class="carousel-item">🏞️ 6</div>
+        </div>
+
+        <div class="note">
+            ⬅️ swipe / drag →  ·  snap enabled  ·  pure CSS
+        </div>
+
+        <!-- short explanation -->
+        <p style="margin-top: 1.5rem; color:#3c2d66; background:#f3ecff; padding:0.6rem; border-radius:3rem;">
+            ✔️ <code>display: flex</code> + <code>overflow-x: auto</code> + <code>scroll-snap-type</code>
+        </p>
     </div>
-
-    <div class="btn-container">
-      <a href="#item1" class="item-btn">ITEM 1</a>
-      <a href="#item2" class="item-btn">ITEM 2</a>
-      <a href="#item3" class="item-btn">ITEM 3</a>
-      <a href="#item4" class="item-btn">ITEM 4</a>
-      <a href="#item5" class="item-btn">ITEM 5</a>
-      <a href="#item6" class="item-btn">ITEM 6</a>
-    </div>
-
-    <div class="note">
-      swipe / drag → · snap enabled · pure CSS
-    </div>
-
-    <p class="p">
-      <code>display: flex</code> + <code>overflow-x: auto</code> + <code>scroll-snap-type</code>
-    </p>
-  </div>
 </body>
 </html>
