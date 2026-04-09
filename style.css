@@ -208,6 +208,7 @@ ol {
   letter-spacing: 2px;
   color: #00ffcc;
   text-shadow: 5px 5px 5px rgb(14, 14, 14);
+  margin-bottom: 1rem;
 }
 
 .lab1 {
@@ -223,7 +224,7 @@ ol {
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   width: 200px;                 
-  margin: 60px auto;         
+  margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
   border: 1px solid #00ffcc;
