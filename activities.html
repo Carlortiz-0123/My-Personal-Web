@@ -3,38 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="examplestyle.css">
   <title>Activities</title>
+ 
 </head>
 <body>
   <header class="header">
-    <a href="index.html" class="logo">My Profile</a>
+    <a href="TRIALFORPORTFOLIO.html" class="logo">My Profile</a>
 
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    
+
+
+
     <nav class="navbar" id="navbar">
-      <a href="index.html">Home</a>
+      <a href="TRIALFORPORTFOLIO.html">Home</a>
       <a href="dashboard.html">Dashboard</a>
       <a href="activities.html" class="active">Activities</a>
       <a href="quiz.html">Quizzes</a>
       <a href="exam.html">Exams</a>
     </nav>
   </header>
-  <div id="overlay"></div>
 
-  <div class="ActivityH1">
-    <h1>ACTIVITIES</h1>  
-  </div>
+   <div class="actcontainer">
+    <div class="left">
+        <h1 class="actfileh1">Activity Upload File</h1>
 
-    <a href="carousel.html" class="lab1">Activity #1</a>
+        <div class="inputact-file">
+            <label class="lbla">File Name</label>
+            <input type="text" id="actTitle"  placeholder="Enter your File Name" ><br><br>
+
+            <label class="lbla">Upload File </label> 
+            <input type="file" id="actFile" ><br><br>
+
+            <label class="lbla">Upload Image</label>
+            <input type="file" id="actImage" ><br><br>
+
+            <button type="button" id="btnact" onclick="submitact()">Submit</button>
+        </div>
+        </div>
+
+        <div class="right">
+          <h4 class="actaccomp"> Uploaded Activity </h4><br>
+   <a href="carousel.html" class="lab1">Activity #1</a>
    <a href="RegistrationForm.html" class="lab2">Activity #2</a>
    <a href="Javafunction.html" class="lab3">Activity #3</a>
+</div>
+  
+    </div>
 
-  <script>
+
+
+   <script>
         const hamburger = document.getElementById("hamburger");
         const navbar = document.getElementById("navbar");
         const overlay = document.getElementById("overlay");
@@ -52,6 +75,19 @@
             hamburger.classList.remove("active");
             overlay.style.display = "none";
         });
+
+        <!--uploadfiles-->
+    function submitact() {
+    var title = document.getElementById("actTitle").value;
+    var file = document.getElementById("actFile").value;
+    var image = document.getElementById("actImage").value;
+
+    if (title === "" || file === "" || image === "") {
+      alert("Please fill out all fields before submitting.");
+    } else {
+      alert("Activity uploaded successfully!");
+    }
+  }
     </script>
 </body>
 </html>
