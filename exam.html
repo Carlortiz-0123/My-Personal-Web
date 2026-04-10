@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Exam</title> 
+    <link rel="stylesheet" href="examplestyle.css">
+    <title>Document</title>
+
+    
+    
 
 </head>
 <body>
 
     <header class="header">
-        <a href="index.html" class="logo">My Profile</a>
+        <a href="TRIALFORPORTFOLIO.html" class="logo">My Profile</a>
 
         <div class="hamburger" id="hamburger">
       <span></span>
@@ -19,21 +22,45 @@
     </div>
 
         <nav class="navbar" id="navbar">
-            <a href="index.html">Home</a>
-            <a href="dashboard.html">Dashboard</a>
+            <a href="TRIALFORPORTFOLIO.html">Home</a>
+              <a href="dashboard.html">Dashboard</a>
             <a href="activities.html">Activities</a>
             <a href="quiz.html">Quizzes</a>
-            <a href="exam.html" class="active">Exams</a>
+            <a href="exam.html" class="active" >Exams</a>
          
         </nav>
     </header>
 
-    <div id="overlay"></div>
+   
 
-     <div class="ExamH1">
-    <h1>EXAMS</h1>
-    
-  </div>
+
+
+    <div class="examcontainer">
+    <div class="lefte">
+        <h1 class="examfileh1">Exam Upload File</h1>
+
+        <div class="inputx-file">
+            <label class="lblx">File Name</label>
+            <input type="text" id="examTitle"  placeholder="Enter your File Name" ><br><br>
+
+            <label class="lblx">Upload File </label> 
+            <input type="file" id="examFile" ><br><br>
+
+            <label class="lblx">Upload Image</label>
+            <input type="file" id="examImage" ><br><br>
+
+            <button type="button" id="btnexam" onclick="submitExam()">Submit</button>
+        </div>
+        </div>
+     <div class="righte">
+         <h4> Uploaded Exam </h4><br>
+     </div>
+    </div>
+
+  
+
+
+
 
  <script>
         const hamburger = document.getElementById("hamburger");
@@ -53,6 +80,21 @@
             hamburger.classList.remove("active");
             overlay.style.display = "none";
         });
+
+
+<!--uploadfiles-->
+function submitExam() {
+    var title = document.getElementById("examTitle").value;
+    var file = document.getElementById("examFile").value;
+    var image = document.getElementById("examImage").value;
+
+    if (title === "" || file === "" || image === "") {
+      alert("Please fill out all fields before submitting.");
+    } else {
+      alert("Exam uploaded successfully!");
+    }
+  }
+
     </script>
 
 </body>
