@@ -198,16 +198,116 @@ ol {
   color: #00ffcc;
   text-shadow: 5px 5px 5px rgb(14, 14, 14);
 }
+
+
 /* === ACTIVITIES === */
-.ActivityH1{
-  font-size: 22px;
-  font-weight: bold;
-  font-family: fantasy;
-  letter-spacing: 2px;
-  color: #00ffcc;
-  text-shadow: 5px 5px 5px rgb(14, 14, 14);
-  margin-bottom: 10% ;
+
+
+    .actcontainer {
+     width: 700px;
+     margin: 20px auto;
+     padding: 30px;
+     text-align: center;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+     display: flex;
+     gap: 30px;
+    }
+
+    .left,
+    .right {
+     flex: 1;
+     }
+
+     .right{
+       backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+    
+     }
+
+     h4{
+      color: #00ffcc;
+     }
+
+    
+    .actcontainer:hover {
+      transform: scale(1); 
+      box-shadow: 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+    } 
+    
+    .actfileh1 {
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-family: fantasy;
+      color: #00ffcc;
+      margin-bottom: 60px;
+    }
+    
+  .inputact-file {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  margin-bottom: 10px;
 }
+
+.lbla {
+  position: relative;
+  left: 33px;
+  bottom: 4px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+ input::placeholder {
+  color: #b4eee2;
+  opacity: 1;
+}
+
+input[type="text"],
+input[type="file"] {
+  position: relative;
+  left: 20px;
+  width: 80%;
+  padding: 10px;
+  margin: 0 10px;
+  border: 1px solid #00ffcc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: transparent;
+  color: white;
+ 
+}
+    
+    
+     #btnact{
+      position: relative;
+      left: 40%;
+      top: 5px;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      cursor: pointer;
+      flex: 1;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+      background-color: transparent;
+      
+    }
+
+     #btnact:hover {
+      background: #00ffcc;
+      color: rgb(15, 4, 62);
+    }
+
+
 .lab1 {
   display: block;                 
   text-align: center;            
@@ -228,6 +328,7 @@ ol {
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
+
 .lab1:hover {
   background: rgba(0, 255, 204, 0.2);
   color: white;
@@ -243,18 +344,22 @@ ol {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
   color: #00ffcc;
-  text-decoration: none; 
+  text-decoration: none;
+  
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);  
+  -webkit-backdrop-filter: blur(15px);
+  
   width: 200px;              
   margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
-  border: 1px solid #00ffcc;  
+  border: 1px solid #00ffcc;
+  
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
+
 .lab2:hover {
   background: rgba(0, 255, 204, 0.2);
   color: white;
@@ -270,18 +375,22 @@ ol {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
   color: #00ffcc;
-  text-decoration: none;  
+  text-decoration: none;
+  
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);  
+  -webkit-backdrop-filter: blur(15px);
+  
   width: 200px;              
   margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
-  border: 1px solid #00ffcc;  
+  border: 1px solid #00ffcc;
+  
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
+
 .lab3:hover {
   background: rgba(0, 255, 204, 0.2);
   color: white;
@@ -289,25 +398,250 @@ ol {
   transform: translateY(-2px);   
 }
 
-/* === QUIZZES === */
-.QuizH1{
-  font-size: 22px;
-  font-weight: bold;
-  font-family: fantasy;
-  letter-spacing: 2px;
-  color: #00ffcc;
-  text-shadow: 5px 5px 5px rgb(14, 14, 14);
-}
-/* === EXAMS === */
-.ExamH1{
-  font-size: 22px;
-  font-weight: bold;
-  font-family: fantasy;
-  letter-spacing: 2px;
-  color: #00ffcc;
-  text-shadow: 5px 5px 5px rgb(14, 14, 14);
+
+@media (max-width: 768px) {
+  .actcontainer {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .right {
+    margin-top: 20px;
+  }
 }
 
+
+
+/* === QUIZZES === */
+    .quizcontainer {
+     width: 700px;
+     margin: 20px auto;
+     padding: 30px;
+     text-align: center;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+     display: flex;
+     gap: 30px;
+    }
+
+    .leftq,
+    .rightq {
+     flex: 1;
+     }
+
+     .rightq{
+       backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+    
+     }
+
+     h4{
+      color: #00ffcc;
+     }
+
+    
+    .quizcontainer:hover {
+      transform: scale(1); 
+      box-shadow: 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+    } 
+    
+    .quizfileh1 {
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-family: fantasy;
+      color: #00ffcc;
+      margin-bottom: 60px;
+    }
+    
+  .inputq-file {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  margin-bottom: 10px;
+}
+
+.lblq {
+  position: relative;
+  left: 33px;
+  bottom: 4px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+ input::placeholder {
+  color: #b4eee2;
+  opacity: 1;
+}
+
+input[type="text"],
+input[type="file"] {
+  position: relative;
+  left: 20px;
+  width: 80%;
+  padding: 10px;
+  margin: 0 10px;
+  border: 1px solid #00ffcc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: transparent;
+  color: white;
+ 
+}
+    
+    
+     #btnquiz{
+      position: relative;
+      left: 40%;
+      top: 5px;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      cursor: pointer;
+      flex: 1;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+      background-color: transparent;
+      
+    }
+
+     #btnquiz:hover {
+      background: #00ffcc;
+      color: rgb(15, 4, 62);
+    }
+
+    @media (max-width: 768px) {
+  .quizcontainer {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .rightq {
+    margin-top: 20px;
+  }
+}
+/* === EXAMS === */
+    .examcontainer {
+     width: 700px;
+     margin: 20px auto;
+     padding: 30px;
+     text-align: center;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+     display: flex;
+     gap: 30px;
+    }
+
+    .lefte,
+    .righte {
+     flex: 1;
+     }
+
+     .righte{
+       backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+    
+     }
+
+     h4{
+      color: #00ffcc;
+     }
+
+    
+    .examcontainer:hover {
+      transform: scale(1); 
+      box-shadow: 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+    } 
+    
+    .examfileh1 {
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-family: fantasy;
+      color: #00ffcc;
+      margin-bottom: 60px;
+    }
+    
+  .inputx-file {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  margin-bottom: 10px;
+}
+
+.lblx {
+  position: relative;
+  left: 33px;
+  bottom: 4px;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+ input::placeholder {
+  color: #b4eee2;
+  opacity: 1;
+}
+
+input[type="text"],
+input[type="file"] {
+  position: relative;
+  left: 20px;
+  width: 80%;
+  padding: 10px;
+  margin: 0 10px;
+  border: 1px solid #00ffcc;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: transparent;
+  color: white;
+ 
+}
+    
+    
+     #btnexam{
+      position: relative;
+      left: 40%;
+      top: 5px;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      cursor: pointer;
+      flex: 1;
+      padding: 10px;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+      background-color: transparent;
+      
+    }
+
+     #btnexam:hover {
+      background: #00ffcc;
+      color: rgb(15, 4, 62);
+    }
+
+    @media (max-width: 768px) {
+  .examcontainer {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .righte {
+    margin-top: 20px;
+  }
+}
 
 
 /* === RESPONSIVENESS === */
