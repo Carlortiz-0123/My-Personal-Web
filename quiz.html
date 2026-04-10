@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Quizzes</title> 
+    <link rel="stylesheet" href="examplestyle.css">
+    <title>Document</title> 
 
 </head>
 <body>
 
     <header class="header">
-        <a href="index.html" class="logo">My Profile</a>
+        <a href="TRIALFORPORTFOLIO.html" class="logo">My Profile</a>
 
         <div class="hamburger" id="hamburger">
       <span></span>
@@ -19,8 +19,8 @@
     </div>
 
         <nav class="navbar" id="navbar">
-            <a href="index.html">Home</a>
-            <a href="dashboard.html">Dashboard</a>
+            <a href="TRIALFORPORTFOLIO.html">Home</a>
+              <a href="dashboard.html">Dashboard</a>
             <a href="activities.html">Activities</a>
             <a href="quiz.html" class="active">Quizzes</a>
             <a href="exam.html">Exams</a>
@@ -28,14 +28,31 @@
         </nav>
     </header>
 
-    <div id="overlay"></div>
+     <div class="quizcontainer">
+        <div class="leftq">
+        <h1 class="quizfileh1">Quiz Upload File</h1>
 
-     <div class="QuizH1">
-    <h1>QUIZZES</h1>
-    
-  </div>
+        <div class="inputq-file">
+            <label class="lblq">File Name</label>
+            <input type="text" id="quizTitle"  placeholder="Enter your File Name" ><br><br>
 
- <script>
+            <label class="lblq">Upload File </label> 
+            <input type="file" id="quizFile" ><br><br>
+
+            <label class="lblq">Upload Image</label>
+            <input type="file" id="quizImage" ><br><br>
+
+            <button type="button" id="btnquiz" onclick="submitQuiz()">Submit</button>
+        </div>
+     </div>
+     <div class="rightq">
+         <h4> Uploaded Quiz </h4><br>
+     </div>
+    </div>
+
+
+
+<script>
         const hamburger = document.getElementById("hamburger");
         const navbar = document.getElementById("navbar");
         const overlay = document.getElementById("overlay");
@@ -53,6 +70,19 @@
             hamburger.classList.remove("active");
             overlay.style.display = "none";
         });
+
+        <!--uploadfiles-->
+    function submitQuiz() {
+    var title = document.getElementById("quizTitle").value;
+    var file = document.getElementById("quizFile").value;
+    var image = document.getElementById("quizImage").value;
+
+    if (title === "" || file === "" || image === "") {
+      alert("Please fill out all fields before submitting.");
+    } else {
+      alert("Quiz uploaded successfully!");
+    }
+  }
     </script>
 
 </body>
