@@ -203,25 +203,33 @@ ol {
 .containerdash{
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+  width: 700px;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 90%;
-  max-width: 600px;
+  width: 700px;
   margin: 20px auto;
   padding: 30px;  
-  
+  display: flex;
+  gap: 10px;
 }
 
   .containerdash:hover {
       transform: scale(1); 
-      box-shadow: 0 0 20px #00ffcc, 0 0 20px #00ffcc;
+      box-shadow: 0 0 40px #00ffcc, 0 0 80px #00ffcc;
     } 
 
-    .rightd{
-      display: flex;
-      gap: 10px;
-    }
+    .leftd,
+    .rightd {
+     flex: 1;
+     }
+
+     .rightd{
+     backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border-radius: 12px;
+     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+     }
 
      .dasha {
   display: block;                 
@@ -235,8 +243,7 @@ ol {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  height: 90px;
-  width: 150px;                 
+  width: 200px;                 
   margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
@@ -261,15 +268,17 @@ ol {
   letter-spacing: 1px;
   color: #00ffcc;
   text-decoration: none;
+  
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  height: 90px;
-  width: 150px;              
+  
+  width: 200px;              
   margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
   border: 1px solid #00ffcc;
+  
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
@@ -290,15 +299,17 @@ ol {
   letter-spacing: 1px;
   color: #00ffcc;
   text-decoration: none;
+  
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  height: 90px;
-  width: 150px;              
+  
+  width: 200px;              
   margin: 30px auto;         
   padding: 12px 20px;
   border-radius: 12px;
   border: 1px solid #00ffcc;
+  
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
   transition: all 0.3s ease;     
 }
@@ -323,6 +334,7 @@ ol {
     margin-top: 20px;
   }
 }
+
 
 
 /* === ACTIVITIES === */
