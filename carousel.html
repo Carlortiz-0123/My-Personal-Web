@@ -14,9 +14,8 @@
     body {
       background: url("bgimage.png") no-repeat center/cover;
       font-family: Arial, Helvetica, sans-serif;
+      justify-content:center;
       min-height: 100vh;
-      margin: 0;
-      padding-top: 90px;
       scroll-behavior: smooth;
     }
 
@@ -97,7 +96,20 @@
     }
 
     .note {
-      margin-top: 3rem;
+      margin-top: 4rem;
+      background: transparent;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 12px;
+      border: 1px solid #00ffcc;
+      box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+      padding: 0.8rem 1.2rem;
+      color: #f0f0f0;
+      font-size: 1rem;
+    }
+
+     .par {
+      margin-top: 10px;
       background: transparent;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
@@ -187,7 +199,7 @@
       swipe / drag → · snap enabled · pure CSS
     </div>
 
-    <p class="note">
+    <p class="par">
       <code>display: flex</code> + <code>overflow-x: auto</code> + <code>scroll-snap-type</code>
     </p>
   </div>
