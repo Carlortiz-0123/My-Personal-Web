@@ -190,13 +190,137 @@ ol {
 }
 
 /* === DASHBOARD === */
-.DashboardH1{
-  font-size: 22px;
+.dashh1{
+  font-size: 40px;
   font-weight: bold;
   font-family: fantasy;
   letter-spacing: 2px;
   color: #00ffcc;
   text-shadow: 5px 5px 5px rgb(14, 14, 14);
+
+}
+
+.containerdash{
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 700px;
+  margin: 20px auto;
+  padding: 30px;  
+  
+}
+
+  .containerdash:hover {
+      transform: scale(1); 
+      box-shadow: 0 0 20px #00ffcc, 0 0 20px #00ffcc;
+    } 
+
+    .rightd{
+      display: flex;
+      gap: 10px;
+    }
+
+     .dasha {
+  display: block;                 
+  text-align: center;            
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+  color: #00ffcc;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  height: 90px;
+  width: 150px;                 
+  margin: 30px auto;         
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid #00ffcc;
+  box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+  transition: all 0.3s ease;     
+}
+
+.dasha:hover {
+  background: rgba(0, 255, 204, 0.2);
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 255, 204, 0.7);
+  transform: translateY(-2px);   
+}
+
+.dashq {
+  display: block;                
+  text-align: center;           
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+  color: #00ffcc;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  height: 90px;
+  width: 150px;              
+  margin: 30px auto;         
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid #00ffcc;
+  box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+  transition: all 0.3s ease;     
+}
+
+.dashq:hover {
+  background: rgba(0, 255, 204, 0.2);
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 255, 204, 0.7);
+  transform: translateY(-2px);   
+}
+
+.dashe {
+  display: block;                
+  text-align: center;           
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+  color: #00ffcc;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  height: 90px;
+  width: 150px;              
+  margin: 30px auto;         
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid #00ffcc;
+  box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+  transition: all 0.3s ease;     
+}
+
+.dashe:hover {
+  background: rgba(0, 255, 204, 0.2);
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 255, 204, 0.7);
+  transform: translateY(-2px);   
+}
+
+
+
+
+@media (max-width: 768px) {
+  .containerdash {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .rightd {
+    margin-top: 20px;
+  }
 }
 
 
@@ -237,7 +361,7 @@ ol {
     
     .actcontainer:hover {
       transform: scale(1); 
-      box-shadow: 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+      box-shadow: 0 0 20px #00ffcc, 0 0 20px #00ffcc;
     } 
     
     .actfileh1 {
@@ -447,7 +571,7 @@ input[type="file"] {
     
     .quizcontainer:hover {
       transform: scale(1); 
-      box-shadow: 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+      box-shadow: 0 0 20px #00ffcc, 0 0 20px #00ffcc;
     } 
     
     .quizfileh1 {
@@ -562,7 +686,7 @@ input[type="file"] {
     
     .examcontainer:hover {
       transform: scale(1); 
-      box-shadow: 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+      box-shadow: 0 0 20px #00ffcc, 0 0 20px #00ffcc;
     } 
     
     .examfileh1 {
