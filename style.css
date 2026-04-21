@@ -567,7 +567,7 @@ input[type="file"] {
   display: flex;
   gap: 15px;
   overflow-x: auto;
-  padding: 10px;
+  padding: 20px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #00ffcc transparent;
