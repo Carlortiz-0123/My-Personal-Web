@@ -712,13 +712,62 @@ input[type="file"] {
      flex: 1;
      }
 
-     .righte{
-       backdrop-filter: blur(15px);
-     -webkit-backdrop-filter: blur(15px);
-     border-radius: 12px;
-     box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
-    
-     }
+   .righte {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+  padding: 20px;
+  overflow: hidden; 
+}
+
+.carousel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #00ffcc transparent;
+  scroll-behavior: smooth;
+  max-width: 100%; 
+  -ms-overflow-style: none;
+}
+
+ .quiz-card img {
+            min-width: 289px;
+            height: 339px;
+            border-radius: 11px;
+ }
+
+
+
+.quiz-card {
+  flex: 0 0 auto;
+  min-width: 290px;
+  height: 340px;
+  border-radius: 12px;
+  background: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid #00ffcc;
+  box-shadow: 0 0px 8px rgba(0, 255, 204, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  scroll-snap-align: start;
+  transition: 0.3s;
+}
+
+.quiz-card:hover {
+  
+  transform: scale(1.05);
+}
 
      h4{
       color: #00ffcc;
