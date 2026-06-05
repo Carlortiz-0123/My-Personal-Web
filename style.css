@@ -721,7 +721,7 @@ input[type="file"] {
   overflow: hidden; 
 }
 
-.carousel {
+.examcarousel {
   display: flex;
   gap: 15px;
   overflow-x: auto;
@@ -734,7 +734,7 @@ input[type="file"] {
   -ms-overflow-style: none;
 }
 
- .quiz-card img {
+ .exam-card img {
             min-width: 289px;
             height: 339px;
             border-radius: 11px;
@@ -742,7 +742,7 @@ input[type="file"] {
 
 
 
-.quiz-card {
+.exam-card {
   flex: 0 0 auto;
   min-width: 290px;
   height: 340px;
@@ -764,7 +764,7 @@ input[type="file"] {
   transition: 0.3s;
 }
 
-.quiz-card:hover {
+.exam-card:hover {
   
   transform: scale(1.05);
 }
